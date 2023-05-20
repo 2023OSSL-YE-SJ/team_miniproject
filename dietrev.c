@@ -5,14 +5,14 @@
 #define BUFFER_SIZE 50
 
 typedef struct {
-    char name[BUFFER_SIZE]; // 이름
-    int type; // 종류 (1.샐러드 2.라이스 3.면 4.빵 5.음료)
-    int price; // 가격
-    double calorie; // 칼로리
+char name[BUFFER_SIZE]; // 이름
+int type; // 종류 (1.샐러드 2.라이스 3.면 4.빵 5.음료)
+int price; // 가격
+double calorie; // 칼로리
 }Product;
 
-int adminMenu(); // 
-int userMenu(); // 
+int adminMenu(); //
+int userMenu(); //
 int selectMode(); // 관리자 모드인지 사용자 모드인지 입력받을 함수
 int selectProductMenu();
 int getCalorie();
@@ -48,7 +48,7 @@ int main(){
     index = count;
     if (index == 0)
         printf("=>파일 없음\n");
-    
+
     int mode = selectMode(); 
     while (1) {
         if (mode == 1) { // 사용자모드
@@ -106,47 +106,47 @@ int main(){
     }
     printf("종료됨!\n");
     return 0;
-}
-
-int getCalorie() {
-    int calorie;
-    printf("칼로리를 입력해주세요: ");
-    scanf("%d", &calorie);
-    return calorie;
-}
-
-int selectProduct(Product *p[], int productMenu) {
-    int index = 0;
-    int menu;
-    printf("0. 칼로리 선택\n");
-    int number = 1;
-
-    while (p[index] && index < MENU_SIZE) {
-        if (p[index]->type == productMenu) {
-            printf("%d. ", number++);
-            readProduct(p[index]);
-        }
-        index++;
     }
-    
-    printf("\n=> 원하는 메뉴는? ");
-    scanf("%d", &menu);
-    return menu;
-}
 
-int selectProductByCategoryAndCalorie(Product *p[], int productMenu, int calorie) {
-    int index = 0;
-    int menu;
-    int number = 1;
-
-    while (p[index] && index < MENU_SIZE) {
-        if (p[index]->type == productMenu && p[index]->calorie <= calorie) {
-            printf("%d. ", number++);
-            readProduct(p[index]);
-        }
-        index++;
+    int getCalorie() {
+        int calorie;
+        printf("칼로리를 입력해주세요: ");
+        scanf("%d", &calorie);
+        return calorie;
     }
-    
+
+    int selectProduct(Product *p[], int productMenu) {
+        int index = 0;
+        int menu;
+        printf("0. 칼로리 선택\n");
+        int number = 1;
+
+        while (p[index] && index < MENU_SIZE) {
+            if (p[index]->type == productMenu) {
+                printf("%d. ", number++);
+                readProduct(p[index]);
+            }
+            index++;
+        }
+
+        printf("\n=> 원하는 메뉴는? ");
+        scanf("%d", &menu);
+        return menu;
+    }
+
+    int selectProductByCategoryAndCalorie(Product *p[], int productMenu, int calorie) {
+        int index = 0;
+        int menu;
+        int number = 1;
+
+        while (p[index] && index < MENU_SIZE) {
+            if (p[index]->type == productMenu && p[index]->calorie <= calorie) {
+                printf("%d. ", number++);
+                readProduct(p[index]);
+            }
+            index++;
+    }
+
     printf("\n=> 원하는 메뉴는? ");
     scanf("%d", &menu);
     return menu;
@@ -223,12 +223,12 @@ int createProduct(Product *p){
 void listProduct(Product *p[], int count){
     printf("********************************************\n");
     for(int i=0; i<count; i++){
-        if(p[i] == NULL) continue;
-        printf("%2d ", i+1);
-        readProduct(p[i]);
+    if(p[i] == NULL) continue;
+    printf("%2d ", i+1);
+    readProduct(p[i]);
     }
     printf("\n");
-}
+    }
 
 void readProduct(Product *p){
     printf("%20s | ", p->name);
@@ -261,22 +261,22 @@ void saveProduct(Product *p[], int count){
     }
     fclose(fp);
     printf("=> 저장됨! ");
-}
+    }
 
-int loadProduct(Product **p){ // 이 함수 수정 필요
-    FILE* fp;
+int loadProduct(Product **p){
+    FILE *fp;
     fp = fopen("menu.txt", "rt");
     if(fp == NULL) return 0; // 파일이 없는 경우
     int i = 0;
     while(!feof(fp)) {
-        p[i] = (Product *) malloc(sizeof(Product)); // 메모리 할당
-        fgets(p[i]->name, BUFFER_SIZE, fp);
-        p[i]->name[strlen(p[i]->name) - 1] = '\0';
-        fscanf(fp, "%d", &p[i]->type);
-        fscanf(fp, "%d", &p[i]->price);
-        fscanf(fp, "%lf\n", &p[i]->calorie);
-        // printf("%s %d %d %lf", p[i]->name, p[i]->type, p[i]->price, p[i]->calorie);
-        i++;
+    p[i] = (Product *) malloc(sizeof(Product)); // 메모리 할당
+    fgets(p[i]->name, BUFFER_SIZE, fp);
+    p[i]->name[strlen(p[i]->name) - 1] = '\0';
+    fscanf(fp, "%d", &p[i]->type);
+    fscanf(fp, "%d", &p[i]->price);
+    fscanf(fp, "%lf\n", &p[i]->calorie);
+    // printf("%s %d %d %lf", p[i]->name, p[i]->type, p[i]->price, p[i]->calorie);
+    i++;
     }
     fclose(fp);
     printf("=> 로딩 성공!\n");
