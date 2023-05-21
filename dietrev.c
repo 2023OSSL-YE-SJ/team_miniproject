@@ -13,12 +13,12 @@ typedef struct
     double calorie;         // 칼로리
 } Product;
 
-int adminMenu();  //
-int userMenu();   //
+int adminMenu();  // 관리자용 메뉴
+int userMenu();   // 사용자용 메뉴
 int selectMode(); // 관리자 모드인지 사용자 모드인지 입력받을 함수
-int selectCategory();
-int getCalorie();
-Product * selectProduct(Product *p[], int productMenu, int calorie);
+int selectCategory(); //  메뉴 종류 고르는 함수 
+int getCalorie(); // 칼로리 입력 받는 함수
+Product * selectProduct(Product *p[], int productMenu, int calorie); // 사용자가 선택한 메뉴 종류와 칼로리 제한에 맞는 제품을 메뉴 목록에서 찾아 반환하는 함수
 int createProduct(Product *p);              // 제품을 추가하는 함수 => 메뉴 선택
 void readProduct(Product *p);               // 하나의 제품 출력 함수 => 구매 목록 보기
 int updateProduct(Product *p);              // 제품을 수정하는 함수 => 구매 목록 수정
@@ -324,7 +324,6 @@ int loadProduct(Product **p)
         fscanf(fp, "%d", &p[i]->type);
         fscanf(fp, "%d", &p[i]->price);
         fscanf(fp, "%lf\n", &p[i]->calorie);
-        // printf("%s %d %d %lf", p[i]->name, p[i]->type, p[i]->price, p[i]->calorie);
         i++;
     }
     fclose(fp);
