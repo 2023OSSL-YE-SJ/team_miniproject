@@ -4,6 +4,7 @@
 #define MENU_SIZE 50
 #define ORDER_SIZE 10
 #define BUFFER_SIZE 50
+#define CATEGORY_SIZE 5
 
 typedef struct
 {
@@ -13,12 +14,12 @@ typedef struct
     double calorie;         // 칼로리
 } Product;
 
-int adminMenu();  // 관리자용 메뉴
-int userMenu();   // 사용자용 메뉴
+int adminMenu();  //
+int userMenu();   //
 int selectMode(); // 관리자 모드인지 사용자 모드인지 입력받을 함수
-int selectCategory(); //  메뉴 종류 고르는 함수 
-int getCalorie(); // 칼로리 입력 받는 함수
-Product * selectProduct(Product *p[], int productMenu, int calorie); // 사용자가 선택한 메뉴 종류와 칼로리 제한에 맞는 제품을 메뉴 목록에서 찾아 반환하는 함수
+int selectCategory();
+int getCalorie();
+Product * selectProduct(Product *p[], int productMenu, int calorie);
 int createProduct(Product *p);              // 제품을 추가하는 함수 => 메뉴 선택
 void readProduct(Product *p);               // 하나의 제품 출력 함수 => 구매 목록 보기
 int updateProduct(Product *p);              // 제품을 수정하는 함수 => 구매 목록 수정
@@ -28,16 +29,24 @@ int loadProduct(Product **p);               // 저장된 데이터를 불러오�
 int selectDataNo(Product *p[], int count);  // 수정, 삭제 할 번호 선택하는 함수
 void listProduct(Product *p[], int count);  // 제품 리스트 출력
 
-char categoryNames[5][100] = {
-    "샐러드",
-    "라이스",
-    "면",
-    "빵",
-    "음료"
+char categoryNames[CATEGORY_SIZE][100] = {
+    "Salad",
+    "Rice",
+    "Noodle",
+    "Bread",
+    "Drink"
 };
 
 int main()
 {
+
+    // printf("%20s님 안녕하세요\n", "a");
+    // printf("%20s님 안녕하세요\n", "ab");
+    // printf("%20s님 안녕하세요\n", "abc");
+    // printf("%20s님 안녕하세요\n", "abcd");
+    // printf("%20s님 안녕하세요\n", "abcde");
+
+
     Product *sp[MENU_SIZE] = {0};
     Product *orders[ORDER_SIZE] = {0};
     int orderCount = 0;
@@ -185,12 +194,10 @@ int selectCategory()
 {
     int category;
     printf("\n*** 다이어트 식당 메뉴 ***\n");
-    printf("1. 샐러드\n");
-    printf("2. 라이스\n");
-    printf("3. 면\n");
-    printf("4. 빵\n");
-    printf("5. 음료\n\n");
-    printf("=> 원하는 메뉴는? ");
+    for (int i=0; i<CATEGORY_SIZE; i++) {
+        printf("%d. %s\n", i+1, categoryNames[i]);
+    }
+    printf("\n=> 원하는 메뉴는? ");
     scanf("%d", &category);
     return category;
 }
@@ -273,8 +280,8 @@ void readProduct(Product *p)
 {
     printf("%-20s", p->name);
     printf("%-10s", categoryNames[p->type - 1]);
-    printf("%-10d", p->price);
-    printf("%-10.1lf", p->calorie);
+    printf("%5d", p->price);
+    printf("%10.1lf", p->calorie);
     printf("\n");
 }
 
@@ -324,6 +331,7 @@ int loadProduct(Product **p)
         fscanf(fp, "%d", &p[i]->type);
         fscanf(fp, "%d", &p[i]->price);
         fscanf(fp, "%lf\n", &p[i]->calorie);
+        // printf("%s %d %d %lf", p[i]->name, p[i]->type, p[i]->price, p[i]->calorie);
         i++;
     }
     fclose(fp);
