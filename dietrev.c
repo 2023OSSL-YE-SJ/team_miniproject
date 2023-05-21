@@ -39,14 +39,6 @@ char categoryNames[CATEGORY_SIZE][100] = {
 
 int main()
 {
-
-    // printf("%20s님 안녕하세요\n", "a");
-    // printf("%20s님 안녕하세요\n", "ab");
-    // printf("%20s님 안녕하세요\n", "abc");
-    // printf("%20s님 안녕하세요\n", "abcd");
-    // printf("%20s님 안녕하세요\n", "abcde");
-
-
     Product *sp[MENU_SIZE] = {0};
     Product *orders[ORDER_SIZE] = {0};
     int orderCount = 0;
@@ -331,7 +323,6 @@ int loadProduct(Product **p)
         fscanf(fp, "%d", &p[i]->type);
         fscanf(fp, "%d", &p[i]->price);
         fscanf(fp, "%lf\n", &p[i]->calorie);
-        // printf("%s %d %d %lf", p[i]->name, p[i]->type, p[i]->price, p[i]->calorie);
         i++;
     }
     fclose(fp);
