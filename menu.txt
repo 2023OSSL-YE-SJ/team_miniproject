@@ -1,89 +1,88 @@
-연어 샐러드
+Salmon Salad
 1 5000 200.0
-닭가슴살 샐러드
+Chicken Breast Salad
 1 6000 180.0
-과일 샐러드
+Fruit salad
 1 7000 170.0
-참치 샐러드
+Tuna Salad
 1 8000 250.0
-새우 샐러드
+Shrimp Salad
 1 8500 170.0
-단호박 샐러드 
+Sweet Pumpkin Salad
 1 5500 150.0
-달걀 샐러드
+Egg salad
 1 6000 130.0
-소고기 샐러드
+Beef Salad
 1 8500 265.0
-리코타 샐러드
+Ricotta Salad
 1 7500 230.0
-고구마 샐러드
+Sweet Potato Salad
 1 6000 220.0
-새우볶음밥
+Shrimp Fried Rice
 2 5000 300.0
-맨밥
+Rice
 2 6000 200.0
-김치볶음밥
+Kimchi Fried Rice
 2 7000 350.0
-상추비빔밥
+Lettuce Bibimbap
 2 8000 250.0
-삼각주먹밥
+triangle Kimbap
 2 4000 120.0
-스팸계란볶음밥
+Spam Egg Fried Rice
 2 8000 300.0
-간장계란밥
+Soy Sauce Egg Rice
 2 5000 130.0
-곤드레비빔밥
+Gondre Bibimbap
 2 12000 350.0
-베이컨볶음밥
+Bacon Fried Rice
 2 11000 420.0
-오므라이스
+Omurice
 2 9000 280.0
-짜장밥
+Jjajangbap
 2 8800 370.0
-잔치국수
+Banquet Noodles
 3 6500 400.0
-봉골레 파스타
+Vongole Pasta
 3 8000 300.0
-칼국수
+Kalguksu
 3 6000 300.0
-토마토 파스타
+Tomato Pasta
 3 7000 300.0
-로제 파스타
+Rosé Pasta
 3 8000 500.0
-크림 파스타
+Creamy Pasta
 3 8000 400.0
-물냉면
+Noodles
 3 6000 280.0
-비빔면
+Bibim Noodles
 3 5500 250.0
-소바
+Soba
 3 6500 300.0
-크림빵
+Cream Bread
 4 3000 200.0
-붕어빵
+Carp bread
 4 2000 180.0
-단팥빵
+Red Bean bread
 4 1000 170.0
-꽈배기
+Pretzel
 4 1500 250.0
-크로와상
+Croissant
 4 2500 250.0
-치아바타 샌드위치
+Ciabatta Sandwich
 4 4500 300.0
-수제버거
+Homemade Burger
 4 8500 320.0
-제로 콜라
+Coke Zero
 5 3000 0.0
-제로 펩시
+zero pepsi
 5 3000 0.0
-웰치스 제로
+Welch's Zero
 5 3000 0.0
-제로 사이다
+zero cider
 5 3000 0.0
-아메리카노
+Americano
 5 4000 10.0
-아이스티
+Iced tea
 5 3500 35.0
-오곡 라떼
+Five Grain Latte
 5 4500 180.0
-
